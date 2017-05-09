@@ -1,5 +1,7 @@
 package GUI;
 
+import com.yworks.yfiles.geometry.RectD;
+import com.yworks.yfiles.graph.IGraph;
 import graph.DummyNode;
 import graph.Node;
 import graph.SequenceGraph;
@@ -69,6 +71,19 @@ public class GraphDrawer {
                 gc.setFill(Color.BLUE);
             }
         }
+    }
+
+    public void drawShapes(IGraph newGraph, SequenceGraph graph) {
+        HashMap<Integer, SequenceNode> nodes = graph.getNodes();
+
+        for(int i = 1; i <= nodes.size(); i++) {
+            SequenceNode node = nodes.get(i);
+            RectD layout = new RectD((node.getColumn() * (X_SIZE + EDGE_LENGTH)) + 50, Y_BASE, X_SIZE, Y_SIZE);
+
+            newGraph.createNode(layout);
+        }
+
+
     }
 }
 

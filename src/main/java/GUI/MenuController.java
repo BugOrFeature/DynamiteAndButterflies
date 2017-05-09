@@ -1,5 +1,7 @@
 package GUI;
 
+import com.yworks.yfiles.graph.IGraph;
+import com.yworks.yfiles.view.GraphControl;
 import graph.SequenceGraph;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
@@ -52,10 +54,13 @@ public class MenuController {
         if (file != null) {
             try {
                 GfaParser parser = new GfaParser();
-                System.out.println("src/main/resources/" + file.getName());
-                SequenceGraph graph = graph = parser.parse(file.getAbsolutePath());
+                System.out.println("src/HelloWorldController/resources/" + file.getName());
+                SequenceGraph graph = parser.parse("src/HelloWorldController/resources/test (1).gfa");
+                GraphControl graphControl = new GraphControl();
+                IGraph newGraph = graphControl.getGraph();
+
                 drawer = new GraphDrawer(graph, gc);
-                drawer.drawShapes();
+                drawer.drawShapes(newGraph, graph);
             } catch (IOException e) {
                 e.printStackTrace();
             }

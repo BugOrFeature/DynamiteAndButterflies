@@ -13,10 +13,10 @@ public class GfaParser {
     private String header2;
 
     /**
-    public static void main(String[] args) throws Exception {
+    public static void HelloWorldController(String[] args) throws Exception {
         long startTime = System.currentTimeMillis();
         parser.GfaParser parser = new parser.GfaParser();
-        graph.SequenceGraph graph = parser.parse("src/main/resources/TB10.gfa");
+        graph.SequenceGraph graph = parser.parse("src/HelloWorldController/resources/TB10.gfa");
         long endTime = System.currentTimeMillis();
         System.out.println("Total execution time: " + (endTime - startTime) );
         long sT = System.currentTimeMillis();
